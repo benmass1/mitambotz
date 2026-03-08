@@ -45,6 +45,16 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ onLoginClick, onRegisterClick }
             >
               Jisajiri (Register)
             </button>
+            <button 
+              onClick={() => {
+                const guestUser = { name: 'Mgeni', role: 'Technician' };
+                localStorage.setItem('dr_mitambo_user', JSON.stringify(guestUser));
+                window.location.reload();
+              }}
+              className="px-8 py-4 bg-neutral-800 text-white font-black rounded-xl hover:bg-neutral-700 transition-all transform hover:scale-105 uppercase tracking-widest text-sm"
+            >
+              Endelea kama Mgeni
+            </button>
           </div>
         </div>
 
