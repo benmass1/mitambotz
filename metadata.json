@@ -1,0 +1,9 @@
+{
+  "name": "Remix: Dr Mitambo Tz",
+  "description": "An advanced AI-powered assistant for heavy machinery technicians, offering real-time diagnostics, visual documentation editing, and technical video simulations.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
