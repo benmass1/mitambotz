@@ -173,10 +173,29 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    app.use(express.static(path.join(__dirname, 'dist')));
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-    });
+    const distPath = path.join(__dirname, 'dist');
+    const indexPath = path.join(distPath, 'index.html');
+    
+    if (fs.existsSync(indexPath)) {
+      app.use(express.static(distPath));
+      app.get("*", (req, res) => {
+        res.sendFile(indexPath);
+      });
+    } else {
+      app.get("*", (req, res) => {
+        res.status(200).send(`
+          <div style="font-family: sans-serif; padding: 50px; text-align: center;">
+            <h1>Dr Mitambo TZ - Karibu!</h1>
+            <p>Mfumo wa Backend upo tayari (Running), lakini muonekano (Frontend) bado haujawekwa.</p>
+            <div style="background: #f0f0f0; padding: 20px; border-radius: 10px; display: inline-block; margin-top: 20px;">
+              <strong>Hatua ya Kufuata:</strong><br>
+              Tafadhali upload folder la <code>dist</code> kwenye seva yako kwa kutumia File Manager.<br>
+              (Seva ya Namecheap haina RAM ya kutosha kufanya <code>npm run build</code>).
+            </div>
+          </div>
+        `);
+      });
+    }
   }
 
   app.listen(PORT, "0.0.0.0", () => {
