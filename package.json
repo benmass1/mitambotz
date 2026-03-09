@@ -7,7 +7,6 @@
     "start": "npx tsx server.ts",
     "dev": "tsx server.ts",
     "build": "vite build",
-    "postinstall": "npm run build",
     "lint": "tsc --noEmit",
     "preview": "vite preview"
   },
