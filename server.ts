@@ -173,7 +173,7 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(__dirname, 'dist');
+    const distPath = path.join(__dirname, 'frontend_build');
     const indexPath = path.join(distPath, 'index.html');
     
     if (fs.existsSync(indexPath)) {
