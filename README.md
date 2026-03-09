@@ -1,5 +1,8 @@
 # Dr. Mitambo TZ - AI Heavy Machinery Assistant
 
+**MUHIMU kwa Namecheap:**
+Folder la `dist` sasa hivi linatumwa GitHub ili kuzuia kosa la "Out of Memory" kule Namecheap.
+
 Dr. Mitambo TZ ni mfumo wa kisasa wa akili bandia (AI) ulioundwa mahususi kwa ajili ya mafundi wa mitambo mizito (Heavy Machinery) nchini Tanzania. Mfumo huu unasaidia katika utambuzi wa hitilafu (diagnosis), usimamizi wa meli ya mitambo (fleet management), na mafunzo ya kiufundi.
 
 ## Sifa kuu (Key Features)
