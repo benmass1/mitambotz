@@ -35,7 +35,6 @@ const App: React.FC = () => {
   useEffect(() => {
     // Check for logged in user
     const savedUser = localStorage.getItem('dr_mitambo_user');
-    console.log('Saved user from localStorage:', savedUser);
     if (savedUser) {
       setCurrentUser(JSON.parse(savedUser));
     }
@@ -51,9 +50,7 @@ const App: React.FC = () => {
         screenHeight: window.screen.height
       })
     }).catch(err => console.error('Failed to log visit', err));
-  }, []);
 
-  useEffect(() => {
     localStorage.setItem('dr_mitambo_fleet', JSON.stringify(machines));
   }, [machines]);
 
@@ -139,6 +136,10 @@ const App: React.FC = () => {
           isOpen={isSignUpOpen} 
           onClose={() => setIsSignUpOpen(false)} 
           onSuccess={(user) => setCurrentUser(user)}
+          onSwitchToLogin={() => {
+            setIsSignUpOpen(false);
+            setIsLoginOpen(true);
+          }}
         />
         <LoginModal 
           isOpen={isLoginOpen} 
@@ -242,6 +243,10 @@ const App: React.FC = () => {
           isOpen={isSignUpOpen} 
           onClose={() => setIsSignUpOpen(false)} 
           onSuccess={(user) => setCurrentUser(user)}
+          onSwitchToLogin={() => {
+            setIsSignUpOpen(false);
+            setIsLoginOpen(true);
+          }}
         />
         <LoginModal 
           isOpen={isLoginOpen} 

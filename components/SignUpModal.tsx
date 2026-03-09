@@ -5,9 +5,10 @@ interface SignUpModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSuccess: (user: any) => void;
+  onSwitchToLogin: () => void;
 }
 
-const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose, onSuccess }) => {
+const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose, onSuccess, onSwitchToLogin }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -63,6 +64,14 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose, onSuccess })
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose}></div>
       
       <div className="relative bg-neutral-900 border border-yellow-500/20 rounded-2xl w-full max-w-md p-8 shadow-2xl animate-in fade-in zoom-in duration-300">
+        <button 
+          onClick={onSwitchToLogin}
+          className="absolute top-4 left-4 text-gray-500 hover:text-white flex items-center space-x-1 group"
+        >
+          <svg className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"/></svg>
+          <span className="text-xs font-bold uppercase tracking-widest">Rudi</span>
+        </button>
+
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-white"
@@ -154,6 +163,18 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose, onSuccess })
             {loading ? 'INASAJILI...' : 'JISAJILI SASA'}
           </button>
         </form>
+
+        <div className="mt-6 text-center">
+          <p className="text-gray-500 text-sm">
+            Tayari una akaunti?{' '}
+            <button 
+              onClick={onSwitchToLogin}
+              className="text-yellow-500 font-bold hover:underline"
+            >
+              Ingia Hapa
+            </button>
+          </p>
+        </div>
       </div>
     </div>
   );

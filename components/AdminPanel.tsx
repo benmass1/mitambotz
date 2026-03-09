@@ -26,7 +26,7 @@ const AdminPanel: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/backend/admin/data');
+        const response = await fetch('/api/admin/data');
         
         let data;
         try {
