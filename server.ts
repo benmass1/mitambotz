@@ -53,7 +53,7 @@ async function startServer() {
   });
 
   // Register
-  app.post(["/backend/register", "/backend/register/"], (req, res) => {
+  app.post(["/api/register", "/api/register/"], (req, res) => {
     const { name, email, password, role, phone } = req.body;
     if (!name || !email || !password) {
       return res.status(400).json({ error: "Tafadhali jaza sehemu zote muhimu" });
@@ -83,7 +83,7 @@ async function startServer() {
   });
 
   // Login
-  app.post(["/backend/login", "/backend/login/"], (req, res) => {
+  app.post(["/api/login", "/api/login/"], (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
       return res.status(400).json({ error: "Tafadhali ingiza barua pepe na neno la siri" });
@@ -108,7 +108,7 @@ async function startServer() {
   });
 
   // Log Visit
-  app.post("/backend/log-visit", (req, res) => {
+  app.post("/api/log-visit", (req, res) => {
     const { email, userAgent } = req.body;
     const visitors = readData(VISITORS_FILE);
     
@@ -127,7 +127,7 @@ async function startServer() {
   });
 
   // Admin Data
-  app.get("/backend/admin/data", (req, res) => {
+  app.get("/api/admin/data", (req, res) => {
     const users = readData(USERS_FILE);
     const visitors = readData(VISITORS_FILE);
     
